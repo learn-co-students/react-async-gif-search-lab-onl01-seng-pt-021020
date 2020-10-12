@@ -7,7 +7,7 @@ class GifSearch extends React.Component {
     }
 
     changeHandler = (e) => {
-        this.setState({ searchTerm: e.target.value })
+        this.setState({ searchTerm: e.target.value }, ()=> console.log(e))
     }
 
     submitHandler = (e) => {
@@ -19,7 +19,7 @@ class GifSearch extends React.Component {
         return (
 
             <form onSubmit={this.submitHandler}>
-                <input type="text" placeholder="search" value={this.state.searchTerm} onChange={this.changeHandler} />
+                <input type="text" placeholder="search" value={this.state.searchTerm} onChange={event => this.changeHandler(event)} />
                 <input type="submit" value="search" />
             </form>
         )
