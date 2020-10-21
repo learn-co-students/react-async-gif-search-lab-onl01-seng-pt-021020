@@ -9,14 +9,14 @@ class GifSearch extends React.Component {
         }
       }
     
-      handleKeywordsChange = (event) => {
+      handleKeywordsChange = e => {
         this.setState({
-          [event.target.name]: event.target.value
+          [e.target.name]: e.target.value
         })
       }
     
-      handleSearchSubmit = (event) => {
-        event.preventDefault();
+      handleSearchSubmit = e => {
+        e.preventDefault();
     
         if (!!this.state.keywords) {
           this.props.handleSearch(this.state)
