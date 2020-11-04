@@ -1,12 +1,21 @@
 import React from 'react'
 
-function GifList(props){
-    
+class GifList extends React.Component{
+    constructor(props){
+        super(props)
+    }
+
+render(){
   return (
-    <div>
-      <img src={props.url}/>
-    </div>
-     )
+    <ul>
+    {this.props.results.map(obj=>{
+        return (
+            <li><img src={obj.images.original.url} alt="" /></li>
+    )
+    })}
+    </ul>
+    )
+}   
 }
 
 export default GifList

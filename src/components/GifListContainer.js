@@ -1,5 +1,6 @@
 import React from 'react'
 import GifList from './GifList'
+import GifSearch from './GifSearch'
 
 class GifListContainer extends React.Component {
 
@@ -22,12 +23,12 @@ class GifListContainer extends React.Component {
     render() {
         this.serchData('cat')
         return(
-            this.state.searchResult.map(obj=>{
-                return (
-                    <GifList url={obj.images.original.url}/>
-                )
-            })
-            
+            <span>
+            {/* <div><GifSearch find={this.serchData()}/></div> */}
+            <div>
+            <GifList results={this.state.searchResult}/>
+            </div>
+            </span>
         )
     }
 }
