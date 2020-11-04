@@ -21,10 +21,10 @@ class GifListContainer extends React.Component {
     }
 
     render() {
-        this.serchData('cat')
+        // this.serchData('cat')
         return(
             <span>
-            {/* <div><GifSearch find={this.serchData()}/></div> */}
+            <div><GifSearch find={this.serchData()}/></div>
             <div>
             <GifList results={this.state.searchResult}/>
             </div>
