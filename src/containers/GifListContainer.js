@@ -1,6 +1,6 @@
 import React from 'react'
-import GifList from './GifList'
-import GifSearch from './GifSearch'
+import GifList from '../components/GifList'
+import GifSearch from '../components/GifSearch'
 
 class GifListContainer extends React.Component {
 
@@ -8,7 +8,7 @@ class GifListContainer extends React.Component {
         searchResult:[]
     }
 
-    serchData = (query) =>{
+    serchData = (query='dolphins') =>{
         fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=dc6zaTOxFJmzC&rating=g`)
         .then(resp=>resp.json())
         .then(data=>this.setSearchResults(data.data))
@@ -23,13 +23,17 @@ class GifListContainer extends React.Component {
     render() {
         // this.serchData('cat')
         return(
-            <span>
-            <div><GifSearch find={this.serchData()}/></div>
             <div>
+           <GifSearch find={this.serchData}/>
+            
             <GifList results={this.state.searchResult}/>
             </div>
-            </span>
+            
         )
+    }
+
+    componentDidMount(){
+        this.serchData()
     }
 }
 

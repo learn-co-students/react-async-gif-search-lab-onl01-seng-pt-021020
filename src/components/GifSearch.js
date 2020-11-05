@@ -12,12 +12,17 @@ class GifSearch extends React.Component{
         })
     }
 
+    searchGifs = event =>{
+        event.preventDefault();
+        this.props.find(this.state.input)
+        
+    }
 
     render() {
         
       return (
           
-            <form>
+            <form onSubmit={this.searchGifs}>
                 <p>
                 <label name="searchInput">Enter a Search Term:</label></p>
                 <p><input type="text" name="searchInput" value={this.state.input} onChange={this.updateInput}/> </p>
